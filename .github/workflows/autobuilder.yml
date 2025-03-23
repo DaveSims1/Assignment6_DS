@@ -8,6 +8,7 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
@@ -18,17 +19,13 @@ jobs:
           dotnet-version: '8.0.x'
 
       - name: Restore dependencies
-        run: |
-          cd "Semester 4/Quality Assurance And Testing/Assignment 6"
-          dotnet restore testProject.csproj
+        run: dotnet restore testProject.csproj
 
       - name: Build the project
-        run: |
-          cd "Semester 4/Quality Assurance And Testing/Assignment 6"
-          dotnet build testProject.csproj --configuration Release
+        run: dotnet build testProject.csproj --configuration Release
 
-      - name: Upload artifact
+      - name: Upload build output
         uses: actions/upload-artifact@v4
         with:
           name: release-build
-          path: "Semester 4/Quality Assurance And Testing/Assignment 6/bin/Release/"
+          path: ./bin/Release/
