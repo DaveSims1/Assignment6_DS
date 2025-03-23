@@ -18,14 +18,14 @@ jobs:
           dotnet-version: '8.0.x'
 
       - name: Restore dependencies
-        run: dotnet restore ./Assignment6/testProject.csproj
+        run: dotnet restore "Semester 4/Quality Assurance And Testing/Assignment 6/testProject.csproj"
 
       - name: Build
-        run: dotnet build ./Assignment6/testProject.csproj --configuration Release
+        run: dotnet build "Semester 4/Quality Assurance And Testing/Assignment 6/testProject.csproj" --configuration Release
 
       - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
           name: release-build
-          path: ./testProject/bin/Release/
+          path: "Semester 4/Quality Assurance And Testing/Assignment 6/bin/Release/"
 
